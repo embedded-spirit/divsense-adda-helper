@@ -1,0 +1,8 @@
+{
+  "name": "divsense-adda-helper",
+  "version": "0.0.2",
+  "description": "Divsense ADDA Helper functions",
+  "main": "index.js",
+  "author": {"name":"Oleg Kirichenko","email":"oleg4564@me.com"},
+  "license": "MIT"
+}
