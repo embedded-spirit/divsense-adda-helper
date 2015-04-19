@@ -8,7 +8,7 @@ var props = function( obj ){
 	}, []);
 }
 
-var makeNode = function( id, text, u, k ){
+var makeNode = function( id, params ){
 
 	return function(set){
 
@@ -16,11 +16,11 @@ var makeNode = function( id, text, u, k ){
 
 		var s = set[ id ] = {};
 
-		if( text ) s.t = text;
+		if( params.t ) s.t = params.t;
 
-		if( u ) s.u = props( u );
+		if( params.u ) s.u = props( params.u );
 
-		if( k ) s.k = props( k );
+		if( params.k ) s.k = props( params.k );
 
 		return set;
 	}
@@ -70,7 +70,7 @@ var setChild = function( parentId, childId, branchName ){
 	}
 }
 
-var init = makeNode("__root__");
+var init = makeNode("__root__", {});
 
 var toArray = function( set, id, array ){
 
@@ -92,10 +92,21 @@ var toArray = function( set, id, array ){
 	}, array );
 }
 
+var getUnitData = function( level, dataAttr, node ){
+
+	return reduce(function(m,a){
+		if( a[0] === dataAttr )
+			m = a[1];
+		return m;
+	}, "", node[ level ] || [] );
+}
+
 exports.makeNode = makeNode;
 exports.setChildNodes = setChildNodes;
 exports.setChild = setChild;
 exports.init = init;
+
+exports.getUnitData = getUnitData;
 
 exports.toArray = function( set ){
 	return toArray( set, "__root__", [] );
