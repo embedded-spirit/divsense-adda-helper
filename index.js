@@ -93,12 +93,10 @@ var toArray = function( set, id, array ){
 }
 
 var getUnitData = function( level, dataAttr, node ){
-
-	return reduce(function(m,a){
-		if( a[0] === dataAttr )
-			m = a[1];
+	return (node[ level ] || [] ).reduce(function(m,a){
+		if( a[0] === dataAttr ) m = a[1];
 		return m;
-	}, "", node[ level ] || [] );
+	}, "");
 }
 
 exports.makeNode = makeNode;

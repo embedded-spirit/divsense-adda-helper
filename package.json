@@ -4,10 +4,10 @@
   "description": "Divsense ADDA API helpers",
   "main": "index.js",
   "author": {"name":"Oleg Kirichenko","email":"oleg4564@me.com"},
-  "keywords":{
+  "keywords":[
     "divsense",
     "mindmap"
-  },
+  ],
   "repository":{
     "name":"git",
     "url":"https://github.com/embedded-spirit/divsense-adda-helper.git"
